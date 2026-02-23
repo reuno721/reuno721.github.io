@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Reuno — Independent Android developer. Simple, useful apps." />
+  <title>Reuno — Android Apps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --border: #e8e4df;
+      --text: #1a1814;
+      --text-muted: #7a7570;
+      --accent: #6A5ACD;
+      --accent-light: #f0eeff;
+      --radius: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111010;
+        --surface: #1c1b1a;
+        --border: #2e2c2a;
+        --text: #f0ede8;
+        --text-muted: #7a7570;
+        --accent: #8b7cf8;
+        --accent-light: #1e1a33;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 48px 24px 40px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 8vw, 52px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title strong {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── App Card ── */
+    .app-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .app-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(106,90,205,0.08);
+    }
+
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .app-info { flex: 1; min-width: 0; }
+
+    .app-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .app-version {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .app-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .app-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Divider label ── */
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 40px 0 16px;
+    }
+
+    /* ── Contact / Legal ── */
+    .info-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-label { color: var(--text-muted); }
+
+    .info-value a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .info-value a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    /* ── Fade in ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header, .app-card, .info-row {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .app-card:nth-child(2) { animation-delay: 0.08s; }
+    .app-card:nth-child(3) { animation-delay: 0.16s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">reuno · developer</div>
+    <h1 class="hero-title">Simple apps.<br><strong>Built with care.</strong></h1>
+    <p class="hero-sub">Independent Android developer. Making tools that are clean, fast, and useful.</p>
+  </header>
+
+  <main>
+
+    <div class="section-label">Apps</div>
+
+    <div class="app-card">
+      <div class="app-icon">🔢</div>
+      <div class="app-info">
+        <div class="app-name">Count Plus</div>
+        <div class="app-version">v1.1.1</div>
+        <div class="app-desc">
+          Multi-row tally counter with labels, count history, haptics, sound effects, and export. Clean and distraction-free.
+        </div>
+        <div class="app-actions">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.reuno.countplus" target="_blank" rel="noopener">
+            ▶ Google Play
+          </a>
+          <a class="btn btn-ghost" href="terms.html">Terms</a>
+          <a class="btn btn-ghost" href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Contact & Legal</div>
+
+    <div class="info-row">
+      <span class="info-label">Developer</span>
+      <span class="info-value">Reuno</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Email</span>
+      <span class="info-value"><a href="mailto:reuno21@gmail.com">reuno21@gmail.com</a></span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">ads.txt</span>
+      <span class="info-value"><a href="/app-ads.txt">app-ads.txt</a></span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Terms of Service</span>
+      <span class="info-value"><a href="terms.html">View</a></span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Privacy Policy</span>
+      <span class="info-value"><a href="privacy.html">View</a></span>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Reuno. All rights reserved.</span>
+    <span>Independent Android Developer</span>
+  </footer>
+
+</body>
+</html>
